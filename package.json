@@ -1,0 +1,27 @@
+{
+  "name": "blog-automation",
+  "version": "1.0.0",
+  "description": "완전 무료 블로그 자동화 시스템 (Claude + Pollinations + Blogger)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js"
+  },
+  "keywords": [
+    "blog",
+    "automation",
+    "claude",
+    "blogger",
+    "pollinations"
+  ],
+  "author": "miraesystem",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "google-auth-library": "^9.4.0",
+    "googleapis": "^118.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
