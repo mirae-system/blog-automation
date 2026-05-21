@@ -336,7 +336,6 @@ async function uploadToBlogger(title, content) {
   const post = {
     title: title,
     content: content,
-    published: true,
     labels: ["자동생성", "웹", "기술"]
   };
 
