@@ -27,6 +27,7 @@ jobs:
       
       - name: Run blog automation
         env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
