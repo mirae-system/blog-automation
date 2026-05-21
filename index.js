@@ -83,8 +83,8 @@ async function generatePostWithGemini(topic) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    
+    const model = genAI.getGenerativeModel({ model: latestModel });
+
     const prompt = `다음 주제로 블로그 포스팅을 작성해주세요:
 
 주제: ${topic}
