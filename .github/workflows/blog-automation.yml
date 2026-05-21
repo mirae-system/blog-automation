@@ -1,0 +1,46 @@
+name: Daily Blog Post
+
+on:
+  schedule:
+    # 매일 오전 9시 실행 (UTC+9 한국시간)
+    # cron: 분 시 일 월 요일
+    - cron: '0 0 * * *'  # UTC 00:00 = 한국 09:00
+  
+  # 수동 실행도 가능
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run blog automation
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          GOOGLE_AUTH_TOKEN: ${{ secrets.GOOGLE_AUTH_TOKEN }}
+        run: node index.js
+      
+      - name: Commit token if updated
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          if [ -f "token.json" ]; then
+            git add token.json
+            git commit -m "Update auth token" || true
+            git push
+          fi
