@@ -83,14 +83,14 @@ async function generatePostWithGemini(topic) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    
     const prompt = `다음 주제로 블로그 포스팅을 작성해주세요:
 
 주제: ${topic}
 
 요구사항:
-- 800-1000자 분량
+- 1000-1500자 분량
 - HTML 형식 사용 (<h3>, <p>, <ul>, <li>, <strong> 등)
 - 일반인도 이해하기 쉬운 언어
 - 실무 팁이나 체크리스트 포함
