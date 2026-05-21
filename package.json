@@ -1,7 +1,7 @@
 {
   "name": "blog-automation",
   "version": "1.0.0",
-  "description": "완전 무료 블로그 자동화 시스템 (Claude + Pollinations + Blogger)",
+  "description": "완전 무료 블로그 자동화 시스템 (Google Gemini + Pollinations + Blogger)",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,14 +10,14 @@
   "keywords": [
     "blog",
     "automation",
-    "claude",
+    "gemini",
     "blogger",
     "pollinations"
   ],
   "author": "miraesystem",
   "license": "MIT",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.24.0",
+    "@google/generative-ai": "^0.3.0",
     "google-auth-library": "^9.4.0",
     "googleapis": "^118.0.0"
   },

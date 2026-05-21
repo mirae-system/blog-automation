@@ -15,24 +15,21 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: '20'
       
       - name: Install dependencies
         run: npm install
       
       - name: Run blog automation
         env:
-          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
-          GOOGLE_AUTH_TOKEN: ${{ secrets.GOOGLE_AUTH_TOKEN }}
         run: node index.js
       
       - name: Commit token if updated
